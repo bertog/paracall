@@ -1,6 +1,6 @@
 {
   "name": "litemedia/paracall",
-  "description": "Simple PHP Framework Based on Symfony 2 create for study purpose",
+  "description": "Lghtweight PHP Framework based on Symfony 2 Component and Eloquent ORM",
   "minimum-stability": "stable",
   "license": "MIT",
   "authors": [
@@ -14,7 +14,9 @@
     "symfony/http-foundation": "v2.6.1",
     "symfony/routing": "v2.6.1",
     "symfony/http-kernel": "v2.6.1",
-    "symfony/templating": "v2.6.1"
+    "symfony/templating": "v2.6.1",
+    "symfony/dependency-injection": "v2.6.3",
+    "illuminate/database": "v4.2.16"
   },
   "autoload": {
     "psr-4": {
