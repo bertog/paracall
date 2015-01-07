@@ -1,0 +1,1 @@
+<h1>Dal POST mi è arrivato: <?= $post ?></h1>
