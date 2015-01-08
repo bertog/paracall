@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Paracall\controllers;
+namespace Paracall\Controllers;
 
 
 class HomeController extends Controller{
