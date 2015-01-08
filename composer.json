@@ -16,7 +16,8 @@
     "symfony/http-kernel": "v2.6.1",
     "symfony/templating": "v2.6.1",
     "symfony/dependency-injection": "v2.6.3",
-    "illuminate/database": "v4.2.16"
+    "illuminate/database": "v4.2.16",
+    "symfony/yaml": "v2.6.3"
   },
   "autoload": {
     "psr-4": {

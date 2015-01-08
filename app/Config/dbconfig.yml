@@ -1,0 +1,8 @@
+default_connection: mysql
+connections:
+  mysql:
+    host: localhost
+    driver: mysql
+    username: root
+    password: root
+    database: paracall

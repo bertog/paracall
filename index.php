@@ -20,7 +20,8 @@ $matcher = new UrlMatcher($routes, $context);
 $resolver = new ControllerResolver();
 
 $App = new App($matcher, $resolver, $capsule);
-$App->bootEloquent();
+//$App->bootEloquent();
+$App->boot();
 
 $response = $App->handle($request);
 

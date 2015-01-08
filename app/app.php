@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Controller\ControllerResolver;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * Class App
@@ -33,17 +34,31 @@ class App {
         $this->capsule = $capsule;
     }
 
-    public function bootEloquent()
+    protected function getDbConfig()
     {
+        return Yaml::parse(__DIR__ . '/Config/dbconfig.yml');
+    }
+
+    public function boot()
+    {
+        $dbconfig = $this->getDbConfig();
+
+        $this->bootEloquent($dbconfig);
+    }
+
+    protected function bootEloquent($dbconfig)
+    {
+        $dbconfig = $dbconfig['connections'][$dbconfig['default_connection']];
+
         $this->capsule->addConnection([
-            'driver' => 'mysql',
-            'host' => 'localhost',
-            'database' => 'paracall',
-            'username' => 'root',
-            'password' => 'root',
-            'charset' => 'utf8',
+            'driver'    => 'mysql',
+            'host'      => $dbconfig['host'],
+            'database'  => $dbconfig['database'],
+            'username'  => $dbconfig['username'],
+            'password'  => $dbconfig['password'],
+            'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
-            'prefix' => ''
+            'prefix'    => ''
         ]);
 
         $this->capsule->setEventDispatcher(new Dispatcher(new Container));
