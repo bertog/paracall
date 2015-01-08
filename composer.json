@@ -1,5 +1,5 @@
 {
-  "name": "litemedia/paracall",
+  "name": "paracall/framework",
   "description": "Lghtweight PHP Framework based on Symfony 2 Component and Eloquent ORM",
   "minimum-stability": "stable",
   "license": "MIT",
