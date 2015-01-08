@@ -13,7 +13,8 @@ abstract class Controller {
 
     public function renderView($view, Array $data = [])
     {
-        $loader = new FilesystemLoader(__DIR__ . '/../views/%name%.php');
+        $baseDir = $_SERVER['DOCUMENT_ROOT'] . '/app';
+        $loader = new FilesystemLoader($baseDir . '/views/%name%.php');
         $templating = new PhpEngine(new TemplateNameParser(), $loader);
 
         return new Response($templating->render($view, $data));
