@@ -36,7 +36,9 @@ class App {
 
     protected function getDbConfig()
     {
-        return Yaml::parse(__DIR__ . '/Config/dbconfig.yml');
+        $baseDir = $_SERVER['DOCUMENT_ROOT'] . '/app';
+
+        return Yaml::parse($baseDir . '/Config/dbconfig.yml');
     }
 
     public function boot()
