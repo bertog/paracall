@@ -16,19 +16,23 @@ use Symfony\Component\Yaml\Yaml;
  */
 class TheConfigurator {
 
+    protected $baseDir;
+
+    function __construct($baseDir)
+    {
+        $this->baseDir = $baseDir;
+    }
+
 
     /**
      * Read the Database Node and return the relevant info for database connection
      *
      * @return mixed
      */
-    public static function DatabaseConfig()
+    public function DatabaseConfig()
     {
-        if ( $_SERVER['DOCUMENT_ROOT'] !== '' ) {
-            $config =  Yaml::parse($_SERVER['DOCUMENT_ROOT'] . '/app/Config/dbconfig.yml');
-        } else {
-            $config =  Yaml::parse(__DIR__ . '/dbconfig.yml');
-        }
+
+        $config = Yaml::parse($this->baseDir . '/app/Config/dbconfig.yml');
 
         $config = $config['connections'][$config['default_connection']];
 

@@ -12,17 +12,23 @@ use Paracall\Config\TheConfigurator;
 class Migrator {
 
     public $capsule;
+    /**
+     * @var TheConfigurator
+     */
+    private $configurator;
 
-    public function __construct()
+    public function __construct(TheConfigurator $configurator)
     {
         $this->capsule = new Manager;
+        $this->configurator = $configurator;
         $this->boot();
     }
 
     protected function boot()
     {
+        var_dump($this->configurator);
 
-        $dbconfig = TheConfigurator::DatabaseConfig();
+        $dbconfig = $this->configurator->DatabaseConfig();
 
         $this->capsule->addConnection([
             'driver'    => 'mysql',
