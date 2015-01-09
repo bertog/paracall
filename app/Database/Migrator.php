@@ -26,8 +26,6 @@ class Migrator {
 
     protected function boot()
     {
-        var_dump($this->configurator);
-
         $dbconfig = $this->configurator->DatabaseConfig();
 
         $this->capsule->addConnection([
