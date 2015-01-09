@@ -1,6 +1,7 @@
 <?php
 
 use Paracall\App;
+use Paracall\Database\Migrations\CreateUsersTable;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Controller\ControllerResolver;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
@@ -26,4 +27,6 @@ $App->boot();
 $response = $App->handle($request);
 
 $response->send();
+
+include 'app/Database/Migrate.php';
 

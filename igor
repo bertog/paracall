@@ -1,0 +1,16 @@
+#! /usr/bin/env php
+
+<?php
+
+use Paracall\Commands\Migrate;
+use Paracall\Commands\SayHelloCommand;
+use Symfony\Component\Console\Application;
+
+
+require 'vendor/autoload.php';
+
+$app = new Application('Paracall Igor', '1.0');
+
+$app->add(new SayHelloCommand());
+$app->add(new Migrate());
+$app->run();
