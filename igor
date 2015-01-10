@@ -2,9 +2,10 @@
 
 <?php
 
-use Paracall\Application\ParacallApp;
-use Paracall\Commands\MigrateCommand;
-use Paracall\Commands\SayHelloCommand;
+use Paracall\Config\TheConfigurator;
+use Paracall\Console\ParacallApp;
+use Paracall\Console\Commands\MigrateCommand;
+use Paracall\Console\Commands\SayHelloCommand;
 
 
 
@@ -15,5 +16,5 @@ $app = new ParacallApp('Paracall Igor', '1.0');
 $app->setBaseDir(__DIR__);
 
 $app->add(new SayHelloCommand());
-$app->add(new MigrateCommand($app->baseDir));
+$app->add(new MigrateCommand($app->baseDir, $app->getAppNamespace()));
 $app->run();

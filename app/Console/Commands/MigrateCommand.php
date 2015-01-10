@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Paracall\Commands;
+namespace Paracall\Console\Commands;
 
 
 use Paracall\Config\TheConfigurator;
@@ -15,10 +15,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 class MigrateCommand extends Command {
 
     protected $baseDir;
+    protected $namespace;
 
-    function __construct($baseDir)
+    function __construct($baseDir, $namespace)
     {
         $this->baseDir = $baseDir;
+        $this->namespace = $namespace;
         parent::__construct();
     }
 
@@ -32,13 +34,17 @@ class MigrateCommand extends Command {
 
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        $migrationClass = $input->getArgument('migration');
+        $config = new TheConfigurator($this->baseDir);
 
-        $migrator = New Migrator(new TheConfigurator($this->baseDir));
+        $migrationClass = $this->namespace . '\\Database\\Migrations\\' . $input->getArgument('migration');
+
+        $migrator = New Migrator($config);
 
         $migration = new $migrationClass();
 
         $migrator->DoTheMigration($migration);
+
+        $output->writeln("<info>Table Successfully Migrated</info>");
 
     }
 }
