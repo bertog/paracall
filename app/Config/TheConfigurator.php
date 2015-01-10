@@ -51,7 +51,7 @@ class TheConfigurator {
 
         extract($config);
 
-        return new Database($host, $database, $username, $password);
+        return new Database($host, $database, $username, $password, $prefix);
     }
 
     public function AppConfig()
