@@ -1,6 +1,6 @@
 {
   "name": "paracall/framework",
-  "description": "Lghtweight PHP Framework based on Symfony 2 Component and Eloquent ORM",
+  "description": "Lightweight PHP Framework based on Symfony 2 Component and Eloquent ORM",
   "minimum-stability": "stable",
   "license": "MIT",
   "authors": [
@@ -10,6 +10,7 @@
     }
   ],
   "require": {
+    "paracall/igor": "dev-develop",
     "symfony/class-loader": "v2.6.1",
     "symfony/http-foundation": "v2.6.1",
     "symfony/routing": "v2.6.1",
@@ -20,6 +21,9 @@
     "symfony/yaml": "v2.6.3",
     "symfony/console": "v2.6.3",
     "symfony/config": "v2.6.3"
+  },
+  "require-dev": {
+    "phpspec/phpspec": "2.1.*"
   },
   "autoload": {
     "psr-4": {
