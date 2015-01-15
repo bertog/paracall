@@ -1,8 +1,11 @@
 <?php
 
+session_start();
+
 use Paracall\App;
 use Paracall\Database\Migrations\CreateUsersTable;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpKernel\Controller\ControllerResolver;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\Routing\RequestContext;
@@ -28,5 +31,4 @@ $response = $App->handle($request);
 
 $response->send();
 
-include 'app/Database/Migrate.php';
 

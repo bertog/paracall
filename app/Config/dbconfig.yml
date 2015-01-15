@@ -6,4 +6,4 @@ connections:
     username: root
     password: root
     database: paracall
-    prefix: paracazz_
+    prefix:
